@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mee.harshwardhan - Professional Music Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Carattere&family=Fleur+De+Leah&family=Inconsolata:wght@200..900&family=Pinyon+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Google Fonts for 'Inter' -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --primary-red: #dc2626;
+        --accent-orange: #ea580c;
+        --dark-bg: #000000;
+        --card-bg: #111111;
+        --text-primary: #ffffff;
+        --text-secondary: #a1a1aa;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+      @font-face {
+        font-family: "Rockybilly";
+        src: url("/fonts/Rockybilly.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      body {
+        font-family: "poppins", sans-serif;
+        background: var(--dark-bg);
+        color: var(--text-primary);
+        overflow-x: hidden; /* Ensure no horizontal scrolling */
+      }
+
+      .font-inter {
+        font-family: "poppins", sans-serif;
+      }
+      .font-Carattere {
+        font-family: "Carattere";
+      }
+      .font-Pinyon-Script {
+        font-family: "Pinyon Script";
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--dark-bg);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--primary-red);
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent-orange);
+      }
+
+      /* Background Noise Effect */
+      .noise-bg::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: radial-gradient(
+            circle at 20% 80%,
+            rgba(220, 38, 38, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(234, 88, 12, 0.1) 0%,
+            transparent 50%
+          );
+        opacity: 0.7;
+        z-index: 0;
+      }
+
+      /* Glitch Effect for Main Title */
+      .glitch {
+        position: relative;
+        color: var(--text-primary);
+        font-size: clamp(3rem, 8vw, 8rem);
+        font-weight: 900;
+        text-transform: uppercase;
+        /* animation: glitch 2s linear infinite; */
+      }
+
+      .glitch::before,
+      .glitch::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .glitch::before {
+        animation: glitch-1 0.5s linear infinite reverse;
+        color: var(--primary-red);
+        z-index: -1;
+      }
+
+      .glitch::after {
+        animation: glitch-2 0.5s linear infinite reverse;
+        color: var(--accent-orange);
+        z-index: -2;
+      }
+
+      @keyframes glitch {
+        0%,
+        100% {
+          transform: translate(0);
+        }
+        20% {
+          transform: translate(-2px, 2px);
+        }
+        40% {
+          transform: translate(-2px, -2px);
+        }
+        60% {
+          transform: translate(2px, 2px);
+        }
+        80% {
+          transform: translate(2px, -2px);
+        }
+      }
+
+      @keyframes glitch-1 {
+        0% {
+          clip: rect(42px, 9999px, 44px, 0);
+        }
+        25% {
+          clip: rect(6px, 9999px, 8px, 0);
+        }
+        50% {
+          clip: rect(18px, 9999px, 20px, 0);
+        }
+        75% {
+          clip: rect(36px, 9999px, 38px, 0);
+        }
+        100% {
+          clip: rect(25px, 9999px, 27px, 0);
+        }
+      }
+
+      @keyframes glitch-2 {
+        0% {
+          clip: rect(65px, 9999px, 67px, 0);
+        }
+        25% {
+          clip: rect(85px, 9999px, 87px, 0);
+        }
+        50% {
+          clip: rect(45px, 9999px, 47px, 0);
+        }
+        75% {
+          clip: rect(75px, 9999px, 77px, 0);
+        }
+        100% {
+          clip: rect(55px, 9999px, 57px, 0);
+        }
+      }
+
+      /* Card Hover Effects */
+      .album-card,
+      .review-card {
+        background: linear-gradient(145deg, var(--card-bg), #1a1a1a);
+        border: 1px solid #222;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .album-card::before,
+      .review-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(220, 38, 38, 0.1),
+          transparent
+        );
+        transition: left 0.6s;
+      }
+
+      .album-card:hover::before,
+      .review-card:hover::before {
+        left: 100%;
+      }
+
+      .album-card:hover,
+      .review-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--primary-red);
+        box-shadow: 0 20px 40px rgba(220, 38, 38, 0.2);
+      }
+
+      /* Button Styles */
+      .btn-primary {
+        background: linear-gradient(
+          135deg,
+          var(--primary-red),
+          var(--accent-orange)
+        );
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 0;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          var(--accent-orange),
+          var(--primary-red)
+        );
+        transition: left 0.3s ease;
+        z-index: -1;
+      }
+
+      .btn-primary:hover::before {
+        left: 0;
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: var(--primary-red);
+        border: 2px solid var(--primary-red);
+        padding: 1rem 2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+      }
+
+      .btn-outline:hover {
+        background: var(--primary-red);
+        color: white;
+        box-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+      }
+
+      /* Navigation Styles */
+      .nav-link {
+        position: relative;
+        color: var(--text-secondary);
+        transition: color 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary-red);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: var(--text-primary);
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      /* Mobile Menu Animation */
+      .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .mobile-menu.active {
+        transform: translateX(0);
+      }
+
+      /* Audio Player Custom Styles */
+      audio {
+        width: 100%;
+        height: 50px;
+        background: #1a1a1a;
+        border-radius: 25px;
+        outline: none;
+      }
+
+      audio::-webkit-media-controls-panel {
+        background-color: #1a1a1a;
+        border-radius: 25px;
+      }
+
+      /* Custom Intersection Observer Animations */
+      .fade-in-up,
+      .slide-in-left,
+      .slide-in-right {
+        opacity: 0;
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .fade-in-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .slide-in-left.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .slide-in-right.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* Initial state for animations */
+      .fade-in-up {
+        transform: translateY(30px);
+      }
+      .slide-in-left {
+        transform: translateX(-50px);
+      }
+      .slide-in-right {
+        transform: translateX(50px);
+      }
+
+      .font-Rockybilly {
+        font-family: "Rockybilly";
+      }
+
+      /* Specific styles for mobile view */
+      @media (max-width: 767px) {
+        .desktop-nav-links {
+          display: none;
+        }
+        
+
+        .mobile-menu-container, .mobile-nav-text {
+          display: none;
+        }
+
+        /* Adjust font sizes for mobile to be more readable */
+        h1.glitch {
+          font-size: 15px; /* Specific font size for mobile hero */
+        }
+
+        .glitch-text {
+          font-size: 2.5rem;
+        }
+
+        .glitch-subtext {
+          font-size: 14px;
+        }
+
+        .glitch-p {
+          font-size: 14px;
+        }
+
+        .text-6xl {
+          font-size: 2.5rem;
+        }
+
+        .text-2xl {
+          font-size: 1.5rem;
+        }
+
+        .text-xl {
+          font-size: 1.125rem;
+        }
+        
+        /* Adjust hero section to prevent overlap */
+        #hero .relative {
+          margin-top: 0;
+          padding-top: 10rem;
+        }
+      }
+
+      /* Responsive padding and margins for all sections */
+      section {
+        padding: 4rem 1rem;
+      }
+
+      @media (min-width: 640px) {
+        section {
+          padding: 5rem 1.5rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        section {
+          padding: 6rem 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body class="overflow-x-hidden">
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <a href="#hero" class="font-Inter font-bold text-2xl text-white">
+              <span class="text-red-600">Harshwardhan</span>Dilpak.
+            </a>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#hero" class="nav-link font-inter font-medium text-lg"
+              >HOME</a
+            >
+            <a href="#albums" class="nav-link font-inter font-medium text-lg"
+              >ALBUMS</a
+            >
+            <a href="#about" class="nav-link font-inter font-medium text-lg"
+              >ABOUT</a
+            >
+            <a
+              href="#testimonials"
+              class="nav-link font-inter font-medium text-lg"
+              >REVIEWS</a
+            >
+            <a href="#contact" class="nav-link font-inter font-medium text-lg"
+              >CONTACT</a
+            >
+            <a href="/admin-harsh-login" class="btn-outline px-4 py-2 text-sm"
+              >ADMIN</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="hero"
+      class="relative min-h-screen flex items-center justify-center noise-bg overflow-hidden"
+    >
+      <!-- Background Image -->
+      <div
+        class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style="background-image: url('hero.jpg')"
+      >
+        <div class="absolute inset-0 bg-black/80"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-10 text-center px-4 max-w-6xl mx-auto mt-40">
+        <div class="fade-in-up">
+          <h1
+            class="glitch font-Rockybilly mb-10 text-5xl "
+            data-text="Harshwardhan"
+            id="heading"
+          >
+            Harshwardhan
+          </h1>
+          <p
+            class="font-inter text-lg font-light text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed text-base sm:text-lg"
+          >
+            Crafting melodies that tell stories, one track at a time.
+          </p>
+
+          <div
+            class="flex flex-col sm:flex-row gap-6 justify-center items-center"
+          >
+            <a href="#albums" class="btn-outline font-inter text-md">
+              <i class="fas fa-compact-disc mr-2"></i> EXPLORE ALBUMS
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div
+        class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+      >
+        <i class="fas fa-chevron-down text-white text-2xl"></i>
+      </div>
+    </section>
+
+    <!-- Albums Section -->
+    <section id="albums" class="py-20 bg-gradient-to-b from-black to-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in-up">
+          <h2
+            class="font-inter text-4xl sm:text-5xl md:text-6xl text-white mb-4 tracking-wider"
+          >
+            DISCOVER <span class="text-red-600">ALBUMS</span>
+          </h2>
+          <div class="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
+          <p class="font-inter text-xl text-gray-400 max-w-2xl mx-auto text-base sm:text-xl">
+            Explore our collection of carefully crafted musical journeys
+          </p>
+        </div>
+
+        <!-- This is where the albums will be rendered -->
+        <div
+          id="albums-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <!-- A loading indicator while fetching data -->
+          <div
+            id="loading-indicator"
+            class="col-span-full text-center text-gray-500 text-lg"
+          >
+            <i class="fas fa-spinner fa-spin mr-2"></i> Loading albums...
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="relative fade-in-up">
+            <img
+              src="artist.jpg"
+              alt="Mee.harshwardhan in a studio"
+              class="w-full rounded-xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
+            />
+            <div
+              class="absolute -bottom-6 -left-6 bg-red-600 p-8 rounded-xl shadow-xl hidden md:block"
+            >
+              <h3 class="font-inter text-5xl text-white">4+</h3>
+              <p class="font-inter font-semibold text-white">
+                YEARS OF<br />EXPERIENCE
+              </p>
+            </div>
+          </div>
+          <div class="slide-in-right">
+            <h2
+              class="font-inter text-4xl sm:text-5xl md:text-6xl text-white mb-4 tracking-wider"
+            >
+              A STORY IN <span class="text-red-600">SOUND</span>
+            </h2>
+            <div class="w-24 h-1 bg-red-600 mb-6"></div>
+            <p class="font-inter text-lg text-gray-300 mb-6 leading-relaxed text-base sm:text-lg">
+              Harshwardhan is a music producer and composer known for a
+              genre-bending sound that seamlessly combines elements of ambient,
+              electronic, and synthwave music. His work is a narrative, with
+              each track contributing to a larger sonic story.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section
+      id="testimonials"
+      class="py-20 bg-gradient-to-b from-gray-900 to-black"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in-up">
+          <h2
+            class="font-inter text-4xl sm:text-5xl md:text-6xl text-white mb-4 tracking-wider"
+          >
+            REVIEWS
+          </h2>
+          <div class="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
+          <p class="font-inter text-xl text-gray-400 max-w-2xl mx-auto text-base sm:text-xl">
+            What the world is saying about my music
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="review-card rounded-xl p-8 fade-in-up">
+            <div class="flex text-red-500 text-xl mb-4">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p
+              class="font-inter text-lg text-gray-300 mb-6 italic leading-relaxed text-base sm:text-lg"
+            >
+              "A masterful blend of technical skill and raw emotion. Each track
+              is a journey in itself, an experience that stays with you."
+            </p>
+            <div class="flex items-center">
+              <div
+                class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mr-4"
+              >
+                <span class="font-inter font-bold text-white">JP</span>
+              </div>
+              <div>
+                <p class="font-inter font-bold text-white text-sm sm:text-base">JAMIE PARKER</p>
+                <p class="font-inter text-xs sm:text-sm text-gray-400">Avid Listener</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card rounded-xl p-8 fade-in-up">
+            <div class="flex text-red-500 text-xl mb-4">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p
+              class="font-inter text-lg text-gray-300 mb-6 italic leading-relaxed text-base sm:text-lg"
+            >
+              "A truly unique and refreshing sound that pushes boundaries. I
+              can't wait to see what innovative tracks he releases next."
+            </p>
+            <div class="flex items-center">
+              <div
+                class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mr-4"
+              >
+                <span class="font-inter font-bold text-white">ST</span>
+              </div>
+              <div>
+                <p class="font-inter font-bold text-white text-sm sm:text-base">SAM TORRES</p>
+                <p class="font-inter text-xs sm:text-sm text-gray-400">Fellow Artist</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card rounded-xl p-8 fade-in-up">
+            <div class="flex text-red-500 text-xl mb-4">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p
+              class="font-inter text-lg text-gray-300 mb-6 italic leading-relaxed text-base sm:text-lg"
+            >
+              "The perfect soundtrack for late-night drives and deep thinking.
+              It's music with a soul and a purpose."
+            </p>
+            <div class="flex items-center">
+              <div
+                class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mr-4"
+              >
+                <span class="font-inter font-bold text-white">LK</span>
+              </div>
+              <div>
+                <p class="font-inter font-bold text-white text-sm sm:text-base">LARA KYLE</p>
+                <p class="font-inter text-xs sm:text-sm text-gray-400">Digital Artist</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in-up">
+          <h2 class="font-inter text-4xl sm:text-5xl md:text-6xl text-white mb-4 tracking-wider">
+            GET IN <span class="text-red-600">TOUCH</span>
+          </h2>
+          <div class="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
+          <p class="font-inter text-xl text-gray-400 max-w-2xl mx-auto text-base sm:text-xl">
+            Have a project in mind or just want to say hello?
+          </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto p-8 rounded-xl shadow-2xl bg-gray-900 fade-in-up">
+          <form id="contact-form" class="space-y-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-300">Name</label>
+              <input type="text" id="name" name="name" required
+                class="mt-1 block w-full p-3 rounded-md bg-gray-800 border-gray-700 text-white focus:border-red-600 focus:ring-red-600 transition-colors"
+                placeholder="Your Name">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-300">Email</label>
+              <input type="email" id="email" name="email" required
+                class="mt-1 block w-full p-3 rounded-md bg-gray-800 border-gray-700 text-white focus:border-red-600 focus:ring-red-600 transition-colors"
+                placeholder="your.email@example.com">
+            </div>
+            <div>
+              <label for="subject" class="block text-sm font-medium text-gray-300">Subject</label>
+              <input type="text" id="subject" name="subject" required
+                class="mt-1 block w-full p-3 rounded-md bg-gray-800 border-gray-700 text-white focus:border-red-600 focus:ring-red-600 transition-colors"
+                placeholder="Project Inquiry, Collaboration, etc.">
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-300">Message</label>
+              <textarea id="message" name="message" rows="4" required
+                class="mt-1 block w-full p-3 rounded-md bg-gray-800 border-gray-700 text-white focus:border-red-600 focus:ring-red-600 transition-colors"
+                placeholder="Your message..."></textarea>
+            </div>
+            <div>
+              <button type="submit"
+                class="btn-primary w-full text-lg flex items-center justify-center">
+                <i class="fas fa-paper-plane mr-2"></i> SEND MESSAGE
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="bg-gray-950 text-gray-500 text-center py-8 mt-16 text-sm shadow-inner"
+    >
+      <p>&copy; 2025 Harshwardhan Dilpak · All Rights Reserved.</p>
+    </footer>
+
+    <!-- Audio Player -->
+    <div
+      id="audio-player"
+      class="fixed bottom-0 left-0 right-0 bg-gray-900 border-t border-gray-800 p-4 transition-all duration-300 hidden"
+    >
+      <div class="max-w-2xl mx-auto flex items-center justify-between">
+        <audio id="player" controls class="flex-grow"></audio>
+        <button
+          id="close-player-btn"
+          class="ml-4 text-white hover:text-red-500 transition-colors"
+        >
+          <i class="fas fa-times text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Custom Message Box for non-alert messages -->
+    <div id="message-box-container" class="fixed top-4 right-4 z-[100]"></div>
+
+    <script>
+      // Function to show a custom message box
+      function showMessage(message, type = 'success') {
+        const container = document.getElementById('message-box-container');
+        const messageBox = document.createElement('div');
+        messageBox.className = `p-4 rounded-md shadow-lg mb-2 flex items-center transition-all duration-300 transform translate-x-full opacity-0`;
+        
+        if (type === 'success') {
+          messageBox.classList.add('bg-green-600', 'text-white');
+        } else if (type === 'error') {
+          messageBox.classList.add('bg-red-600', 'text-white');
+        }
+
+        messageBox.innerHTML = `
+          <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'} mr-2 text-xl"></i>
+          <span>${message}</span>
+        `;
+        
+        container.appendChild(messageBox);
+        
+        // Animate in
+        setTimeout(() => {
+          messageBox.classList.remove('translate-x-full', 'opacity-0');
+          messageBox.classList.add('translate-x-0', 'opacity-100');
+        }, 10);
+
+        // Animate out after 5 seconds
+        setTimeout(() => {
+          messageBox.classList.remove('translate-x-0', 'opacity-100');
+          messageBox.classList.add('translate-x-full', 'opacity-0');
+          setTimeout(() => messageBox.remove(), 300);
+        }, 5000);
+      }
+      
+      // Use Intersection Observer for scroll animations
+      const intersectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            } else {
+              entry.target.classList.remove("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      // Observe all elements with animation classes
+      document
+        .querySelectorAll(".fade-in-up, .slide-in-left, .slide-in-right")
+        .forEach((element) => {
+          intersectionObserver.observe(element);
+        });
+
+      // --- Backend API Call and Album Rendering ---
+
+      async function fetchAlbums() {
+        try {
+          // Assuming your Express server is running on the same host and port
+          const response = await fetch("/api/albums");
+          if (!response.ok) {
+            throw new Error("Failed to fetch albums from the server.");
+          }
+          const albums = await response.json();
+          renderAlbums(albums);
+        } catch (error) {
+          console.error("Error fetching albums:", error);
+          const albumsContainer = document.getElementById("albums-container");
+          albumsContainer.innerHTML = `<div class="col-span-full text-center text-red-500 text-lg">Error loading albums. Please try again later.</div>`;
+        }
+      }
+
+      // Function to render albums from an array
+      function renderAlbums(albums) {
+        const albumsContainer = document.getElementById("albums-container");
+        albumsContainer.innerHTML = ""; // Clear existing albums
+
+        if (albums.length === 0) {
+          albumsContainer.innerHTML = `<div class="col-span-full text-center text-gray-500 text-lg">No albums found.</div>`;
+        } else {
+          albums.forEach((album, index) => {
+            const albumCard = document.createElement("div");
+            albumCard.className = `album-card rounded-xl p-6 slide-in-left`;
+            albumCard.style.setProperty("--delay", `${index * 100}ms`);
+            albumCard.innerHTML = `
+                        <div class="relative overflow-hidden rounded-lg mb-6 group">
+                            <img src="${album.coverImage}"
+                                 alt="Album Cover" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <button class="text-white text-4xl play-track" data-track-url="${
+                                  album.audioFiles[0]
+                                }">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <h3 class="font-inter text-xl sm:text-2xl font-bold text-white mb-2">${
+                          album.title
+                        }</h3>
+                        <p class="font-inter text-gray-400 mb-4 text-sm sm:text-base">${
+                          album.genre
+                        } · ${album.artist}</p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <button onclick="updateLikeCount('${
+                                  album._id
+                                }')" class="text-red-400 hover:text-red-300 transition-colors mr-4">
+                                    <i class="fas fa-heart"></i> <span id="likes-${
+                                      album._id
+                                    }">${album.likes}</span>
+                                </button>
+                                <span class="text-xs text-gray-500"><i class="fas fa-headphones mr-1"></i> Plays: <span id="plays-${
+                                  album._id
+                                }">${album.playCount}</span></span>
+                            </div>
+                            <div class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center ml-auto">
+                                <span class="font-inter font-bold text-white text-sm">${(
+                                  album.artist || ""
+                                )
+                                  .split(" ")
+                                  .map((name) => name[0])
+                                  .join("")
+                                  .slice(0, 2)
+                                  .toUpperCase()}</span>
+                            </div>
+                        </div>
+                    `;
+            albumsContainer.appendChild(albumCard);
+          });
+
+          // Re-observe elements for animation
+          document
+            .querySelectorAll(".fade-in-up, .slide-in-left, .slide-in-right")
+            .forEach((element) => {
+              intersectionObserver.unobserve(element);
+              element.classList.remove("visible");
+              intersectionObserver.observe(element);
+            });
+        }
+      }
+
+      // Functions to update data via API calls
+      async function updateLikeCount(albumId) {
+        try {
+          // A POST request to update the like count
+          const response = await fetch(`/albums/${albumId}/like`, {
+            method: "POST",
+          });
+          const result = await response.json();
+          if (response.ok) {
+            const likesElement = document.getElementById(`likes-${albumId}`);
+            if (likesElement) {
+              likesElement.innerText = result.likes;
+            }
+          }
+        } catch (error) {
+          console.error("Error liking album:", error);
+          // Handle error
+        }
+      }
+
+      async function updatePlayCount(albumId) {
+        try {
+          // A POST request to update the play count
+          await fetch(`/albums/${albumId}/play`, { method: "POST" });
+        } catch (error) {
+          console.error("Error playing album:", error);
+        }
+      }
+
+      // --- Audio Player Logic ---
+      const audioPlayer = document.getElementById("audio-player");
+      const player = document.getElementById("player");
+      const albumsContainer = document.getElementById("albums-container");
+      const heroPlayBtn = document.getElementById("play-music-btn");
+      const closePlayerBtn = document.getElementById("close-player-btn");
+
+      // Initial track URL for the hero section button
+      const initialTrackUrl =
+        "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+
+      // Handle clicks on album play buttons
+      albumsContainer.addEventListener("click", (event) => {
+        if (event.target.closest(".play-track")) {
+          const button = event.target.closest(".play-track");
+          const trackUrl = button.getAttribute("data-track-url");
+          const albumCard = event.target.closest(".album-card");
+          const albumId = albumCard
+            .querySelector('[onclick*="updateLikeCount"]')
+            .getAttribute("onclick")
+            .match(/'(.*?)'/)[1];
+
+          playTrack(trackUrl);
+          updatePlayCount(albumId);
+        }
+      });
+
+      // Function to play a track and show the player
+      function playTrack(url) {
+        player.src = url;
+        player.play();
+        audioPlayer.classList.remove("hidden");
+      }
+
+      // Close the audio player
+      closePlayerBtn.addEventListener("click", () => {
+        player.pause();
+        audioPlayer.classList.add("hidden");
+      });
+
+      // --- Contact Form Logic ---
+      const contactForm = document.getElementById('contact-form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', async (event) => {
+          event.preventDefault(); // Prevent default form submission
+          
+          const formData = new FormData(contactForm);
+          const formObject = Object.fromEntries(formData.entries());
+
+          try {
+            const response = await fetch('/api/contact', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(formObject),
+            });
+
+            if (response.ok) {
+              const result = await response.json();
+              showMessage(result.message || 'Message sent successfully!', 'success');
+              contactForm.reset(); // Clear the form
+            } else {
+              const errorData = await response.json();
+              showMessage(errorData.message || 'Failed to send message. Please try again.', 'error');
+            }
+          } catch (error) {
+            console.error('Error submitting contact form:', error);
+            showMessage('An unexpected error occurred. Please try again later.', 'error');
+          }
+        });
+      }
+
+
+      // Initial fetch call when the page loads
+      document.addEventListener("DOMContentLoaded", fetchAlbums);
+    </script>
+  </body>
+</html>

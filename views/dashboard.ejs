@@ -1,0 +1,206 @@
+<!-- File: views/dashboard.ejs -->
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard · mee.harshwardhan</title>
+
+  <!-- Google Fonts for 'Inter' -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary-red: #dc2626;
+      --accent-orange: #ea580c;
+      --dark-bg: #0a0a0a;
+      --card-bg: #111111;
+      --text-primary: #ffffff;
+      --text-secondary: #a1a1aa;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark-bg);
+      color: var(--text-primary);
+      overflow-x: hidden;
+    }
+
+    .font-inter { font-family: 'Inter', sans-serif; }
+
+    /* Custom button styles to match the homepage */
+    .btn-primary {
+        background: linear-gradient(135deg, var(--primary-red), var(--accent-orange));
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 0.5rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+    }
+
+    .btn-danger {
+        background: #ef4444; /* red-600 */
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        transition: background-color 0.3s ease;
+    }
+    
+    .btn-danger:hover {
+        background: #dc2626; /* red-700 */
+    }
+
+    .btn-save {
+        background: #f59e0b; /* yellow-500 */
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-save:hover {
+        background: #d97706; /* yellow-600 */
+    }
+
+    /* Card styles to match the homepage theme */
+    .dashboard-card {
+      background: linear-gradient(145deg, var(--card-bg), #1a1a1a);
+      border: 1px solid #222;
+      border-radius: 0.75rem;
+      transition: all 0.3s ease;
+    }
+
+    .dashboard-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-red);
+      box-shadow: 0 10px 20px rgba(220, 38, 38, 0.2);
+    }
+
+    .form-input {
+      background-color: #1a1a1a;
+      border-color: #4b5563; /* gray-600 */
+      color: #ffffff;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary-red);
+      box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.5);
+    }
+    
+    /* Navigation Styles to match the homepage */
+    .nav-link {
+        position: relative;
+        color: var(--text-secondary);
+        transition: color 0.3s ease;
+    }
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary-red);
+        transition: width 0.3s ease;
+    }
+    .nav-link:hover {
+        color: var(--text-primary);
+    }
+    .nav-link:hover::after {
+        width: 100%;
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-white font-inter">
+
+  <!-- Custom Navbar to replace partials/navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-20">
+              <!-- Logo -->
+              <div class="flex items-center">
+                  <a href="/" class="font-inter font-bold text-2xl text-white">
+                      <span class="text-red-600">MEE</span>.HARSHWARDHAN
+                  </a>
+              </div>
+
+              <!-- Dashboard Navigation -->
+              <div class="flex items-center space-x-8">
+                  <span class="nav-link font-inter font-bold text-lg text-red-600">DASHBOARD</span>
+                  <a href="/logout" class="btn-danger px-4 py-2 text-sm rounded-md">LOGOUT</a>
+              </div>
+          </div>
+      </div>
+  </nav>
+
+  <section class="px-6 py-10 max-w-4xl mx-auto pt-28">
+    <h1 class="text-4xl font-bold text-red-600 mb-6">Admin Dashboard</h1>
+
+    <div class="mb-10 p-6 rounded-xl shadow-md dashboard-card">
+      <h2 class="text-2xl font-bold text-white mb-4">Upload New Album</h2>
+      <form action="/admin/upload" method="POST" enctype="multipart/form-data" class="space-y-4">
+        <input type="text" name="title" placeholder="Title" required class="w-full px-4 py-3 rounded-md form-input">
+        <input type="text" name="artist" placeholder="Artist" required class="w-full px-4 py-3 rounded-md form-input">
+        <input type="text" name="genre" placeholder="Genre" required class="w-full px-4 py-3 rounded-md form-input">
+        <textarea name="description" placeholder="Description" rows="3" class="w-full px-4 py-3 rounded-md form-input"></textarea>
+        <input type="file" name="audioFiles" multiple accept="audio/mp3" required class="block w-full text-sm text-gray-400 bg-transparent rounded-md file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-red-500 file:text-white hover:file:bg-red-600 cursor-pointer">
+        <!-- <input type="file" name="coverImage" accept="image/*" required class="block w-full text-sm text-gray-400 bg-transparent rounded-md file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-red-500 file:text-white hover:file:bg-red-600 cursor-pointer"> -->
+        <button type="submit" class="btn-primary">
+            Upload
+        </button>
+      </form>
+    </div>
+
+    <h2 class="text-2xl mt-10 mb-4 font-semibold text-white">Your Albums</h2>
+    <div class="space-y-6">
+      <% albums.forEach(album => { %>
+        <div class="dashboard-card rounded-lg p-6 shadow-md">
+          <form action="/admin/edit/<%= album._id %>" method="POST" class="space-y-4">
+            <input type="text" name="title" value="<%= album.title %>" required class="w-full px-4 py-2 rounded-md form-input">
+            <input type="text" name="artist" value="<%= album.artist %>" required class="w-full px-4 py-2 rounded-md form-input">
+            <input type="text" name="genre" value="<%= album.genre %>" required class="w-full px-4 py-2 rounded-md form-input">
+            <textarea name="description" rows="2" class="w-full px-4 py-2 rounded-md form-input"><%= album.description %></textarea>
+            <div class="flex space-x-2">
+              <button type="submit" class="btn-save text-sm">Save</button>
+              <form action="/admin/delete/<%= album._id %>" method="POST" class="inline">
+                <button class="btn-danger text-sm">Delete</button>
+              </form>
+            </div>
+          </form>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+
+  <!-- Custom Footer to replace partials/footer -->
+  <footer class="bg-gray-950 text-gray-500 text-center py-8 mt-16 text-sm shadow-inner">
+      <p>&copy; 2024 mee.harshwardhan · All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
